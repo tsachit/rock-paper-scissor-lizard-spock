@@ -62,7 +62,7 @@ const showWinner = (winner, computerChoice) => {
     result.innerHTML = `
       <h1 class="text-win">You Win</h1>
       <i class="fas fa-hand-${computerChoice} fa-10x"></i>
-      <p>Computer chose <strong>${computerChoice}</strong></p>
+      <p>Computer Chose <strong>${computerChoice.firstLetterUpperCaseInString()}</strong></p>
     `;
   } else if(winner == 'computer') {
     // Inc player score
@@ -71,20 +71,27 @@ const showWinner = (winner, computerChoice) => {
     result.innerHTML = `
       <h1 class="text-lose">You Lose</h1>
       <i class="fas fa-hand-${computerChoice} fa-10x"></i>
-      <p>Computer chose <strong>${computerChoice}</strong></p>
+      <p>Computer Chose <strong>${computerChoice.firstLetterUpperCaseInString()}</strong></p>
     `;
   } else {
     // Show modal result
     result.innerHTML = `
       <h1>It's A Draw</h1>
       <i class="fas fa-hand-${computerChoice} fa-10x"></i>
-      <p>Computer chose <strong>${computerChoice}</strong></p>
+      <p>Computer Chose <strong>${computerChoice.firstLetterUpperCaseInString()}</strong></p>
     `;
   }
   // Update score
   updateScore();
   modal.style.display = 'block';
 }
+
+// extending string class in es6, to make first letter in string capital
+Object.assign(String.prototype, {
+  firstLetterUpperCaseInString() {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+  }
+});
 
 // Restart game
 const restartGame = () => {
