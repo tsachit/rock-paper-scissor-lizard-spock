@@ -81,11 +81,8 @@ function showWinner(winner, computerChoice) {
       <p>Computer chose <strong>${computerChoice}</strong></p>
     `;
   }
-  // Show score
-  score.innerHTML = `
-    <p>Player: ${scoreboard.player}</p>
-    <p>Computer: ${scoreboard.computer}</p>
-  `;
+  // Update score
+  updateScore();
   modal.style.display = 'block';
 }
 
@@ -93,10 +90,8 @@ function showWinner(winner, computerChoice) {
 function restartGame() {
   scoreboard.player = 0;
   scoreboard.computer = 0;
-  score.innerHTML = `
-    <p>Player: 0</p>
-    <p>Computer: 0</p>
-  `;
+  // Update score
+  updateScore();
 }
 
 // Clear modal
@@ -104,6 +99,14 @@ function clearModal(e) {
   if (e.target == modal) {
     modal.style.display = 'none';
   }
+}
+
+// Update score on scoreboard
+function updateScore () {
+  score.innerHTML = `
+    <p>Player: ${scoreboard.player}</p>
+    <p>Computer: ${scoreboard.computer}</p>
+  `;
 }
 
 // Event Listeners
