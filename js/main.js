@@ -9,7 +9,7 @@ const scoreboard = {
 }
 
 // Play Game
-function play(e) {
+const play = (e) => {
   restart.style.display = 'inline-block';
   const playerChoice = e.target.id;
   const computerChoice = getComputerChoice();
@@ -18,7 +18,7 @@ function play(e) {
 }
 
 // Get computers choice
-function getComputerChoice() {
+const getComputerChoice = () => {
   const rand = Math.random();
   if (rand < 0.34) {
     return 'rock';
@@ -30,7 +30,7 @@ function getComputerChoice() {
 }
 
 // Get game winner
-function getWinner(p, c) {
+const getWinner = (p, c) => {
   if(p === c) {
     return 'draw';
   } else if (p === 'rock') {
@@ -54,7 +54,7 @@ function getWinner(p, c) {
   }
 }
 
-function showWinner(winner, computerChoice) {
+const showWinner = (winner, computerChoice) => {
   if(winner == 'player') {
     // Inc player score
     scoreboard.player++;
@@ -87,7 +87,7 @@ function showWinner(winner, computerChoice) {
 }
 
 // Restart game
-function restartGame() {
+const restartGame = () => {
   scoreboard.player = 0;
   scoreboard.computer = 0;
   // Update score
@@ -95,14 +95,14 @@ function restartGame() {
 }
 
 // Clear modal
-function clearModal(e) {
+const clearModal = (e) => {
   if (e.target == modal) {
     modal.style.display = 'none';
   }
 }
 
 // Update score on scoreboard
-function updateScore () {
+const updateScore  = () => {
   score.innerHTML = `
     <p>Player: ${scoreboard.player}</p>
     <p>Computer: ${scoreboard.computer}</p>
